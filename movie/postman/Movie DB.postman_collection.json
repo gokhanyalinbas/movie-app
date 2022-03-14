@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "725a82c3-b9d1-4b0c-9d84-da14c6291740",
+		"name": "Movie DB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"username\":\"user\",\r\n\"password\":\"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rate Movie- In DB",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjQ3Mjc5NTU0LCJleHAiOjE2NDcyODMxNTR9.zDmZeeFgWHSoiF55wWV5l016C9pspXXQMl4I9K1BH40",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"userRate\":2,\r\n\"title\":\"Avatar\",\r\n\"userId\":\"123\",\r\n\"userName\":\"Gokhan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/movies/rate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"movies",
+						"rate"
+					],
+					"query": [
+						{
+							"key": "Authorazation",
+							"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjQ3Mjc5NTU0LCJleHAiOjE2NDcyODMxNTR9.zDmZeeFgWHSoiF55wWV5l016C9pspXXQMl4I9K1BH40",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Rate Movie- In API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjQ3Mjc5NTU0LCJleHAiOjE2NDcyODMxNTR9.zDmZeeFgWHSoiF55wWV5l016C9pspXXQMl4I9K1BH40",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userRate\":1,\r\n\"title\":\"Oz\",\r\n\"userId\":\"123\",\r\n\"userName\":\"Gokhan\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/movies/rate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"movies",
+						"rate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ISWON-YES",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjQ3Mjc5NTU0LCJleHAiOjE2NDcyODMxNTR9.zDmZeeFgWHSoiF55wWV5l016C9pspXXQMl4I9K1BH40",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/movies/award?title=The King's Speech",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"movies",
+						"award"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "The King's Speech"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ISWON-NO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjQ3Mjc5NTU0LCJleHAiOjE2NDcyODMxNTR9.zDmZeeFgWHSoiF55wWV5l016C9pspXXQMl4I9K1BH40",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/movies/award?title=Avatar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"movies",
+						"award"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Avatar"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TOP TEN",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjQ3Mjc5NTU0LCJleHAiOjE2NDcyODMxNTR9.zDmZeeFgWHSoiF55wWV5l016C9pspXXQMl4I9K1BH40",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/movies/rated",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"movies",
+						"rated"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
