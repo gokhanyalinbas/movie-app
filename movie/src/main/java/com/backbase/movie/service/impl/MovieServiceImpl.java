@@ -9,6 +9,7 @@ import com.backbase.movie.model.api.OmdbResponse;
 import com.backbase.movie.service.MovieDaoService;
 import com.backbase.movie.service.MovieService;
 import com.backbase.movie.service.OmdbService;
+import com.backbase.movie.util.MovieServiceUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -38,9 +39,9 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public List<MovieResponseDto> getTopMovies(int topCount) {
         return movieDaoService.getTopRatedMovies(topCount).stream()
-                .map(m -> setBoxOffice(m))
+                .map(this::setBoxOffice)
                 .sorted(Comparator.comparing(Movie::getBoxOffice).reversed())
-                .map(i -> mapMovieToResponse(i))
+                .map(MovieServiceUtil::mapMovieToResponse)
                 .collect(Collectors.toList());
     }
 

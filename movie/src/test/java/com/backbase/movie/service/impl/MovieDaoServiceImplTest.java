@@ -51,7 +51,7 @@ class MovieDaoServiceImplTest {
         movie.setAdditionalInfo("updated");
         Movie result = movieDaoService.updateMovie(movie);
         assertThat(result).isNotNull();
-        assertThat(result.getAdditionalInfo().equals("updated"));
+        assertThat(result.getAdditionalInfo()).isEqualTo("updated");
         verify(movieRepository, times(1)).save(any(Movie.class));
 
     }

@@ -45,7 +45,7 @@ public class MovieDaoServiceImpl implements MovieDaoService {
     @Override
     public List<Movie> getTopRatedMovies(int topCount) {
         return movieRepository.findAll().stream()
-                .filter(m -> m.getRates().size() > 0)
+                .filter(m -> !m.getRates().isEmpty())
                 .sorted(Comparator.comparingDouble(Movie::getAverageRate).reversed())
                 .limit(topCount)
                 .collect(Collectors.toList());

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Rate {
 
-    private String Id;
+    private String id;
     private int userRate;
     private User user;
 }

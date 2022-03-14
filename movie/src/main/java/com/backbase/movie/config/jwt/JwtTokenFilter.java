@@ -24,7 +24,7 @@ import java.util.function.Function;
 
 public class JwtTokenFilter extends GenericFilterBean {
     private static final String BEARER = "Bearer";
-    private final String AUTHORIZATION = "Authorization";
+    private static final String AUTHORIZATION = "Authorization";
     private String SECRET;
     private UserDetailsService userDetailsService;
 

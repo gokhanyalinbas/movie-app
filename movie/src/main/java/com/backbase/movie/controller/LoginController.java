@@ -25,7 +25,7 @@ public class LoginController {
     private JwtTokenProvider jwtTokenProvider;
 
     @PostMapping
-    public ResponseEntity<?> signIn(@RequestBody @Valid WebUserDto webUser) throws AuthenticationException {
+    public ResponseEntity<JwtTokenResponse> signIn(@RequestBody @Valid WebUserDto webUser) throws AuthenticationException {
         try {
             UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                     webUser.getUsername(), webUser.getPassword());

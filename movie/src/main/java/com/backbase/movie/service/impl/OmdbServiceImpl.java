@@ -22,7 +22,7 @@ public class OmdbServiceImpl implements OmdbService {
     public OmdbResponse getMovieDetails(String title) {
         OmdbResponse response;
         try {
-            String URL = UriComponentsBuilder.fromHttpUrl(ApplicationConstant.API_URL)
+            String uriString = UriComponentsBuilder.fromHttpUrl(ApplicationConstant.API_URL)
                     .queryParam("t", "{t}")
                     .queryParam("apikey", "{apikey}")
                     .encode()
@@ -30,7 +30,7 @@ public class OmdbServiceImpl implements OmdbService {
             Map<String, String> params = new HashMap<>();
             params.put("t", title);
             params.put("apikey", ApplicationConstant.APIKEY);
-            response = restTemplate.getForEntity(URL, OmdbResponse.class, params).getBody();
+            response = restTemplate.getForEntity(uriString, OmdbResponse.class, params).getBody();
         } catch (Exception exception) {
             throw new OmdbAPiCallException(exception.getMessage());
         }

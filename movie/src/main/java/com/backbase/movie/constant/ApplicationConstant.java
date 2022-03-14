@@ -2,6 +2,7 @@ package com.backbase.movie.constant;
 
 public class ApplicationConstant {
 
+    private ApplicationConstant(){}
     public static final String INPUT_FILEPATH = "academy_awards.csv";
     public static final String YES = "YES";
     public static final String BEST_PICTURE = "Best Picture";

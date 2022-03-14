@@ -24,7 +24,8 @@ public class FileServiceImpl implements FileService {
         CSVReader csvReader = new CSVReaderBuilder(new FileReader(new File(resource.toURI())))
                 .withSkipLines(1)// Skip the  first line - header
                 .build();
-        return csvReader.readAll().stream().map(data -> getModel(data)).collect(Collectors.toList());
+        return csvReader.readAll().stream().map(this::getModel)
+                .collect(Collectors.toList());
     }
 
     private RecordModel getModel(final String[] data) {

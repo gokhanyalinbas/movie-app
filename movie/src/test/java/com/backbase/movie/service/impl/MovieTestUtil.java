@@ -34,7 +34,7 @@ public class MovieTestUtil {
                 .build();
         Rate rate = Rate.builder()
                 .userRate(userRate)
-                .Id("1")
+                .id("1")
                 .user(user)
                 .build();
         Award award = getAward(true);

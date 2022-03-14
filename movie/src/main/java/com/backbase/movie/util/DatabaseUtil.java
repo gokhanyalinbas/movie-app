@@ -30,22 +30,22 @@ public class DatabaseUtil {
             List<RecordModel> records = fileService.readFile(ApplicationConstant.INPUT_FILEPATH);
             records.stream()
                     .filter(i -> isMovie.test(i.getCategory()))
-                    .forEach(record -> saveRecord(record));
+                    .forEach(this::saveRecord);
         }
 
 
     }
 
-    private void saveRecord(RecordModel record) {
+    private void saveRecord(RecordModel recordModel) {
         Award award = Award.builder()
-                .category(record.getCategory())
-                .won(record.isWon())
+                .category(recordModel.getCategory())
+                .won(recordModel.isWon())
                 .build();
         Movie movie = Movie.builder()
                 .award(award)
-                .title(record.getNominee())
-                .additionalInfo(record.getAdditionalInfo())
-                .year(record.getYear())
+                .title(recordModel.getNominee())
+                .additionalInfo(recordModel.getAdditionalInfo())
+                .year(recordModel.getYear())
                 .rates(new ArrayList<>())
                 .build();
         movieDaoService.createMovie(movie);

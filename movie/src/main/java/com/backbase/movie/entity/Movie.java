@@ -29,7 +29,7 @@ public class Movie {
     @JsonIgnore
     public double getAverageRate() {
         return rates.stream()
-                .mapToDouble(d -> d.getUserRate())
+                .mapToDouble(Rate::getUserRate)
                 .average()
                 .orElse(ApplicationConstant.EMPTY);
     }

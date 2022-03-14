@@ -16,6 +16,8 @@ import java.util.Locale;
 import java.util.UUID;
 
 public class MovieServiceUtil {
+    private MovieServiceUtil() {
+    }
 
     public static Movie mapOmdbResponseToMovie(OmdbResponse omdbResponse) {
         Award award = Award.builder()
@@ -35,7 +37,7 @@ public class MovieServiceUtil {
     public static Rate mapRateDtoToRate(RateRequestDto rateRequestDto) {
         return Rate.builder()
                 .user(new User(rateRequestDto.getUserId(), rateRequestDto.getUserName()))
-                .Id(UUID.randomUUID().toString())
+                .id(UUID.randomUUID().toString())
                 .userRate(rateRequestDto.getUserRate())
                 .build();
     }

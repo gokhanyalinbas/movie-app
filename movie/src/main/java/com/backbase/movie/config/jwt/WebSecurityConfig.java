@@ -24,8 +24,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    public String username;
-    public String password;
+    private String username;
+    private String password;
     @Autowired
     private UserDetailsService userDetailsService;
     @Value("${security.jwt.token.secret-key}")
