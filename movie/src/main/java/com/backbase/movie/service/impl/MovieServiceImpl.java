@@ -18,7 +18,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.backbase.movie.util.MovieServiceUtil.*;
+import static com.backbase.movie.util.MovieServiceUtil.mapOmdbResponseToMovie;
+import static com.backbase.movie.util.MovieServiceUtil.mapRateDtoToRate;
 
 @Service
 @RequiredArgsConstructor

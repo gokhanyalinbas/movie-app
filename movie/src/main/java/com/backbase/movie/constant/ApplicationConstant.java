@@ -2,7 +2,6 @@ package com.backbase.movie.constant;
 
 public class ApplicationConstant {
 
-    private ApplicationConstant(){}
     public static final String INPUT_FILEPATH = "academy_awards.csv";
     public static final String YES = "YES";
     public static final String BEST_PICTURE = "Best Picture";
@@ -19,4 +18,6 @@ public class ApplicationConstant {
     public static final int TOP_COUNT = 10;
     public static final String NOT_APPLICABLE = "N/A";
     public static final String LOGIN = "login";
+    private ApplicationConstant() {
+    }
 }

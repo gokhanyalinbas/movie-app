@@ -25,12 +25,12 @@ import java.util.function.Function;
 public class JwtTokenFilter extends GenericFilterBean {
     private static final String BEARER = "Bearer";
     private static final String AUTHORIZATION = "Authorization";
-    private String SECRET;
+    private String secret;
     private UserDetailsService userDetailsService;
 
-    public JwtTokenFilter(UserDetailsService userDetailsService, String SECRET) {
+    public JwtTokenFilter(UserDetailsService userDetailsService, String secret) {
         this.userDetailsService = userDetailsService;
-        this.SECRET = Base64.getEncoder().encodeToString(SECRET.getBytes());
+        this.secret = Base64.getEncoder().encodeToString(secret.getBytes());
     }
 
     @Override
@@ -68,7 +68,7 @@ public class JwtTokenFilter extends GenericFilterBean {
     }
 
     private <T> T getClaimFromToken(String token, Function<Claims, T> claimsResolver) {
-        final Claims claims = Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody();
+        final Claims claims = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
         return claimsResolver.apply(claims);
     }
 
